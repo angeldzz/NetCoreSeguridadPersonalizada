@@ -1,0 +1,22 @@
+﻿@if(User.Identity.IsAuthenticated == false){
+    //NUNCA LLAMAMOS AL LOGIN
+    //EL TRUCO ESTA EN LLAMAR A LA VISTA QUE TENGAMOS CON SEGUIRDAD Y 
+    //AHI APARECERA EL LOGIN
+    <li class="nav-item text-info">
+        <a class="nav-link" 
+            asp-controller="Usuarios" 
+            asp-action="Perfil">
+            LogIn
+        </a>
+    </li>
+}
+else
+{
+    <li class="nav-item text-danger">
+        <a class="nav-link"
+           asp-controller="Managed"
+           asp-action="Logout">
+            LogOut <span>@Context.User.Identity.Name</span>
+        </a>
+    </li>
+}
